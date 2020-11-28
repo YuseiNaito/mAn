@@ -2,6 +2,7 @@
 #define LOGFILE_H
 
 #include "file_format.h"
+#include <QFile>
 #include <QList>
 #include <QMap>
 
