@@ -75,11 +75,13 @@ void Communicator::receiveCommand(int t) {
                 RobotSpeed rs(command.velocity_x(), command.velocity_y(), command.velocity_r());
                 commandBuffer[t].robotSpeed[command.robot_id()] = rs;
             }
+            /*
             if(isSimulation) {
                 ZSS::ZSimModule::instance()->sendSim(t, commands);
             } else {
                 ZSS::ZActionModule::instance()->sendLegacy(t, commands);
             }
+            */
         }
     }
 }
