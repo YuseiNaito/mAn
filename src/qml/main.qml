@@ -18,14 +18,6 @@ Window {
         fields.height = roots.height;
     }
 
-//    color:"#e8e8e8";
-//    flags:Qt.FramelessWindowHint
-//    Shortcut{
-//        sequence: "Ctrl+q"
-//        onActivated: {
-//            Qt.quit();
-//        }
-//    }
     property bool ctrlC : false;
     Shortcut{
         sequence: "Ctrl+c";
