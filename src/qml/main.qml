@@ -14,26 +14,18 @@ Window {
     onScreenChanged: {
         width = screen.width;
         height = screen.height - 100;
-        minimumHeight = height;
-        minimumWidth = width;
-        maximumHeight = height;
-        maximumWidth = width;
         fields.width = (roots.height)*4/3;
         fields.height = roots.height;
     }
 
-    minimumHeight: height;
-    minimumWidth: width;
-    maximumHeight: height;
-    maximumWidth: width;
-    color:"#e8e8e8";
-    flags:Qt.FramelessWindowHint
-    Shortcut{
-        sequence: "Ctrl+q"
-        onActivated: {
-            Qt.quit();
-        }
-    }
+//    color:"#e8e8e8";
+//    flags:Qt.FramelessWindowHint
+//    Shortcut{
+//        sequence: "Ctrl+q"
+//        onActivated: {
+//            Qt.quit();
+//        }
+//    }
     property bool ctrlC : false;
     Shortcut{
         sequence: "Ctrl+c";
