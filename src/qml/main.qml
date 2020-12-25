@@ -27,13 +27,13 @@ Window {
     maximumHeight: height;
     maximumWidth: width;
     color:"#e8e8e8";
-//    flags:Qt.FramelessWindowHint
-//    Shortcut{
-//        sequence: "Ctrl+q"
-//        onActivated: {
-//            Qt.quit();
-//        }
-//    }
+    flags:Qt.FramelessWindowHint
+    Shortcut{
+        sequence: "Ctrl+q"
+        onActivated: {
+            Qt.quit();
+        }
+    }
     property bool ctrlC : false;
     Shortcut{
         sequence: "Ctrl+c";
@@ -126,15 +126,15 @@ Window {
                 font.pointSize: 10;
                 font.weight:  Font.Bold;
             }
-//            Rectangle{
-//               id:areaRectangle;
-//               width:parent.width;
-//               height:parent.height;
-//               x:0;
-//               y:0;
-//               color:"#11ffffff";
-//               visible: false;
-//            }
+            Rectangle{
+               id:areaRectangle;
+               width:parent.width;
+               height:parent.height;
+               x:0;
+               y:0;
+               color:"#11ffffff";
+               visible: false;
+            }
             MouseArea{
                 anchors.fill: parent;
                 hoverEnabled: true;
@@ -145,57 +145,57 @@ Window {
                 }
             }
 
-//            MouseArea{
-//                property int startX : 0;
-//                property int startY : 0;
-//                anchors.fill: parent;
-//                acceptedButtons: Qt.MiddleButton
-//                property bool controlMode : false
-//                onClicked: {
-//                    if(mouse.modifiers === Qt.AltModifier){
-//                        interaction.setPlacementPoint(mouseX,mouseY);
-//                    }
-//                }
-//                onPressed: {
-//                    controlMode = (mouse.modifiers === Qt.ControlModifier)
-//                    startX = mouseX;
-//                    startY = mouseY;
-//                    if(controlMode){
-//                        interaction.setArea(0,0,0,0);
-//                        areaRectangle.visible = true;
-//                        areaRectangle.width = 0;
-//                        areaRectangle.height = 0;
-//                        areaRectangle.x = startX;
-//                        areaRectangle.y = startY;
-//                    }
-//                }
-//                onPositionChanged: {
-//                    if(controlMode){
-//                        areaRectangle.x = Math.min(mouseX,startX);
-//                        areaRectangle.y = Math.min(mouseY,startY);
-//                        areaRectangle.width = Math.abs(mouseX - startX);
-//                        areaRectangle.height = Math.abs(mouseY - startY);
-//                    }else{
-//                        interaction.moveField(mouseX - startX,mouseY - startY)
-//                        startX = mouseX;
-//                        startY = mouseY;
-//                    }
-//                }
-//                onReleased: {
-//                    if(controlMode){
-//                        if(areaRectangle.width < 100 && areaRectangle.height < 100){
-//                            areaRectangle.x = areaRectangle.y = 0;
-//                            areaRectangle.width = areaRectangle.parent.width;
-//                            areaRectangle.height = areaRectangle.parent.height;
-//                            interaction.resetArea();
-//                        }else{
-//                            interaction.setArea(areaRectangle.x,areaRectangle.width + areaRectangle.x,areaRectangle.height + areaRectangle.y,areaRectangle.y);
-//                        }
-//                        areaRectangle.visible = false;
-//                    }
-//                    controlMode = false
-//                }
-//            }
+            MouseArea{
+                property int startX : 0;
+                property int startY : 0;
+                anchors.fill: parent;
+                acceptedButtons: Qt.MiddleButton
+                property bool controlMode : false
+                onClicked: {
+                    if(mouse.modifiers === Qt.AltModifier){
+                        interaction.setPlacementPoint(mouseX,mouseY);
+                    }
+                }
+                onPressed: {
+                    controlMode = (mouse.modifiers === Qt.ControlModifier)
+                    startX = mouseX;
+                    startY = mouseY;
+                    if(controlMode){
+                        interaction.setArea(0,0,0,0);
+                        areaRectangle.visible = true;
+                        areaRectangle.width = 0;
+                        areaRectangle.height = 0;
+                        areaRectangle.x = startX;
+                        areaRectangle.y = startY;
+                    }
+                }
+                onPositionChanged: {
+                    if(controlMode){
+                        areaRectangle.x = Math.min(mouseX,startX);
+                        areaRectangle.y = Math.min(mouseY,startY);
+                        areaRectangle.width = Math.abs(mouseX - startX);
+                        areaRectangle.height = Math.abs(mouseY - startY);
+                    }else{
+                        interaction.moveField(mouseX - startX,mouseY - startY)
+                        startX = mouseX;
+                        startY = mouseY;
+                    }
+                }
+                onReleased: {
+                    if(controlMode){
+                        if(areaRectangle.width < 100 && areaRectangle.height < 100){
+                            areaRectangle.x = areaRectangle.y = 0;
+                            areaRectangle.width = areaRectangle.parent.width;
+                            areaRectangle.height = areaRectangle.parent.height;
+                            interaction.resetArea();
+                        }else{
+                            interaction.setArea(areaRectangle.x,areaRectangle.width + areaRectangle.x,areaRectangle.height + areaRectangle.y,areaRectangle.y);
+                        }
+                        areaRectangle.visible = false;
+                    }
+                    controlMode = false
+                }
+            }
 
         }
         ControlBoard{
